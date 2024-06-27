@@ -5,7 +5,7 @@ import streamlit as st
 X_API_KEY = os.getenv("X_API_KEY")
 
 st.set_page_config(layout="wide")
-st.title("Relevant Sources Demo V0.2")
+st.title("Relevant Sources Demo V0.3")
 
 if st.button("Get Sources"):
     if not st.session_state.get('document'):
