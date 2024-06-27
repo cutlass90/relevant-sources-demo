@@ -12,7 +12,7 @@ username = os.getenv("USER_NAME")
 password = os.getenv("PASSWORD")
 
 st.set_page_config(layout="wide")
-st.title("Relevant Sources Demo V0.4")
+st.title("Relevant Sources Demo V0.5")
 
 if st.button("Get Sources"):
     if not st.session_state.get('document'):
