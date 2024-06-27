@@ -12,7 +12,7 @@ username = os.getenv("USER_NAME")
 password = os.getenv("PASSWORD")
 
 st.set_page_config(layout="wide")
-st.title("Relevant Sources Demo V0.5")
+st.title("Relevant Sources Demo V0.6")
 
 if st.button("Get Sources"):
     if not st.session_state.get('document'):
@@ -38,7 +38,7 @@ if st.button("Get Sources"):
 doc_col, analysis_col = st.columns(2)
 
 with doc_col:
-    st.session_state['document'] = st.text_area("Place your document here", height=500, max_chars=1000)
+    st.session_state['document'] = st.text_area("Place your document here", height=500, max_chars=2000)
 
 with analysis_col:
     if 'results' in st.session_state:
