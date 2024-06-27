@@ -12,7 +12,7 @@ username = os.getenv("USER_NAME")
 password = os.getenv("PASSWORD")
 
 st.set_page_config(layout="wide")
-st.title("Relevant Sources Demo V0.6")
+st.title("Relevant Sources Demo V0.7")
 
 if st.button("Get Sources"):
     if not st.session_state.get('document'):
@@ -45,13 +45,16 @@ with analysis_col:
         st.subheader(f"{len(st.session_state['results'])} claim(s) found")
         for i, result in enumerate(st.session_state['results']):
             for source in result['sources']:
-                del source["content"]
-                del source["justification"]
-                del source["relevance_score"]
-                del source["reliability_score"]
-                del source["stance"]
-                del source["date"]
-                source["source summary"] = source.pop("summary")
+                try:
+                    del source["content"]
+                    del source["justification"]
+                    del source["relevance_score"]
+                    del source["reliability_score"]
+                    del source["stance"]
+                    del source["date"]
+                    source["source summary"] = source.pop("summary")
+                except Exception as e:
+                    print(e)
             with st.expander(f"Claim {i + 1} - {result['claim']['text']}"):
                 st.write('Below is a nested list of relevant sources for the identified claim:')
                 st.write(result['sources'])
