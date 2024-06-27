@@ -18,8 +18,14 @@ if st.button("Get Sources"):
             data = {
                 "text": st.session_state['document']
             }
-            response = requests.post(url, headers=headers, json=data)
-            st.session_state['results'] = response.json().get('results', [])
+            try:
+                response = requests.post(url, headers=headers, json=data)
+                response.raise_for_status() 
+                st.session_state['results'] = response.json().get('results', [])
+            except requests.exceptions.HTTPError as http_err:
+                st.error(f"HTTP error occurred: {http_err}")
+            except Exception as err:
+                st.error(f"An error occurred: {err}")
 
 doc_col, analysis_col = st.columns(2)
 
