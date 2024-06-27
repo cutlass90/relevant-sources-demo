@@ -30,7 +30,7 @@ if st.button("Get Sources"):
 doc_col, analysis_col = st.columns(2)
 
 with doc_col:
-    st.session_state['document'] = st.text_area("Place your document here", height=1000)
+    st.session_state['document'] = st.text_area("Place your document here", height=1000, max_chars=2000)
 
 with analysis_col:
     if st.session_state.get('results'):
