@@ -38,7 +38,7 @@ if st.button("Get Sources"):
 doc_col, analysis_col = st.columns(2)
 
 with doc_col:
-    st.session_state['document'] = st.text_area("Place your document here", height=500, max_chars=2000
+    st.session_state['document'] = st.text_area("Place your document here", height=500, max_chars=2000,
                                                value="Climate change refers to the long-term shift in global weather patterns caused by human activity, particularly the emission of greenhouse gases into the atmosphere. ⁤⁤The most significant greenhouse gas is carbon dioxide, which is primarily produced by burning fossil fuels such as coal, oil, and gas.")
 
 with analysis_col:
