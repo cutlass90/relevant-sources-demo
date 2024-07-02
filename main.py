@@ -18,7 +18,7 @@ if st.button("Get Sources"):
     if not st.session_state.get('document'):
         st.write('Please input your document first.')
     else:
-        with st.spinner("Processing, this may take up to a 2 minutes..."):
+        with st.spinner("Processing, this may take up to a minute..."):
             url = "https://e125-99-209-159-2.ngrok-free.app/relevant_sources"
             url = "https://api.gptzero.me/v2/relevant_sources/text"
             headers = {'Content-Type': 'application/json', 'x-api-key': X_API_KEY}
