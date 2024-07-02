@@ -12,7 +12,7 @@ username = os.getenv("USER_NAME")
 password = os.getenv("PASSWORD")
 
 st.set_page_config(layout="wide")
-st.title("Relevant Sources Demo V0.8")
+st.title("Relevant Sources Demo V0.9")
 
 if st.button("Get Sources"):
     if not st.session_state.get('document'):
@@ -20,14 +20,13 @@ if st.button("Get Sources"):
     else:
         with st.spinner("Processing, this may take up to a 2 minutes..."):
             url = "https://e125-99-209-159-2.ngrok-free.app/relevant_sources"
-            headers = {'Content-Type': 'application/json'}
+            url = "https://api.gptzero.me/v2/relevant_sources/text"
+            headers = {'Content-Type': 'application/json', 'x-api-key': X_API_KEY}
             data = {
                 "text": st.session_state['document']
             }
             try:
-                response = requests.post(url, headers=headers, json=data,
-                                        auth=HTTPBasicAuth(username, password),
-                                        verify=False)
+                response = requests.post(url, headers=headers, json=data)
                 response.raise_for_status() 
                 st.session_state['results'] = response.json().get('results', [])
             except requests.exceptions.HTTPError as http_err:
