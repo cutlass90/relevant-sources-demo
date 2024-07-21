@@ -12,7 +12,7 @@ username = os.getenv("USER_NAME")
 password = os.getenv("PASSWORD")
 
 st.set_page_config(layout="wide")
-st.title("Relevant Sources Demo V0.9")
+st.title("Relevant Sources Demo V0.10")
 
 if st.button("Get Sources"):
     if not st.session_state.get('document'):
@@ -27,6 +27,9 @@ if st.button("Get Sources"):
             }
             try:
                 response = requests.post(url, headers=headers, json=data)
+                st.write(status_code = response.status_code)
+                if response.status_code != 200:
+                    st.write(response.json()
                 response.raise_for_status() 
                 st.session_state['results'] = response.json().get('results', [])
             except requests.exceptions.HTTPError as http_err:
