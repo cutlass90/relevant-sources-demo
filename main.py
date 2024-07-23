@@ -30,7 +30,7 @@ def is_huggingface_endpoint_ready(endpoint_url: str) -> bool:
         print(f"An error occurred: {e}")
         return False
 
-if is_huggingface_endpoint_ready(https://q1r7kjemo7cozrxa.us-east-1.aws.endpoints.huggingface.cloud):
+if is_huggingface_endpoint_ready('https://q1r7kjemo7cozrxa.us-east-1.aws.endpoints.huggingface.cloud'):
     st.write('Endpoints are ready')
 else:
     st.write('Endpoints are scaled to 0. Demo will be ready in few minutes, please wait.')
