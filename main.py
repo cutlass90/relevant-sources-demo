@@ -21,6 +21,7 @@ def is_huggingface_endpoint_ready(endpoint_url: str) -> bool:
     }
     try:
         response = requests.get(endpoint_url, headers=headers)
+        st.write(response.content.decode())
         if response.status_code == 200:
             return True
         else:
