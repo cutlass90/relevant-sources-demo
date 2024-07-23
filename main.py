@@ -11,6 +11,7 @@ X_API_KEY = os.getenv("X_API_KEY")
 username = os.getenv("USER_NAME")
 password = os.getenv("PASSWORD")
 HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
+st.write(HUGGINGFACE_API_TOKEN[-7:])
 
 st.set_page_config(layout="wide")
 st.title("Relevant Sources Demo V0.11")
