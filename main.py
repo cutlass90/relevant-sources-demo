@@ -10,8 +10,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 X_API_KEY = os.getenv("X_API_KEY")
 username = os.getenv("USER_NAME")
 password = os.getenv("PASSWORD")
-HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
-st.write(HUGGINGFACE_API_TOKEN[:10])
+
 
 st.set_page_config(layout="wide")
 st.title("Relevant Sources Demo V0.11")
@@ -32,10 +31,7 @@ def is_huggingface_endpoint_ready(endpoint_url: str) -> bool:
         print(f"An error occurred: {e}")
         return False
 
-if is_huggingface_endpoint_ready('https://q1r7kjemo7cozrxa.us-east-1.aws.endpoints.huggingface.cloud'):
-    st.write('Endpoints are ready')
-else:
-    st.write('Endpoints are scaled to 0. Demo will be ready in few minutes, please wait.')
+
 
 if st.button("Get Sources"):
     if not st.session_state.get('document'):
