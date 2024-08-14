@@ -71,6 +71,12 @@ with analysis_col:
             for source in result['sources']:
                 try:
                     source["source summary"] = source.pop("summary")
+                    #del source["content"]
+                    del source["justification"]
+                    #del source["relevance_score"]
+                    del source["reliability_score"]
+                    #del source["stance"]
+                    #del source["date"]
                 except Exception as e:
                     print(e)
             with st.expander(f"Claim {i + 1} - {result['claim']['text']}"):
