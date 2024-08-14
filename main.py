@@ -13,7 +13,7 @@ password = os.getenv("PASSWORD")
 
 
 st.set_page_config(layout="wide")
-st.title("Relevant Sources Demo V0.11")
+st.title("Relevant Sources Demo V0.12")
 
 def is_huggingface_endpoint_ready(endpoint_url: str) -> bool:
     headers = {
@@ -70,12 +70,6 @@ with analysis_col:
         for i, result in enumerate(st.session_state['results']):
             for source in result['sources']:
                 try:
-                    del source["content"]
-                    del source["justification"]
-                    del source["relevance_score"]
-                    del source["reliability_score"]
-                    del source["stance"]
-                    del source["date"]
                     source["source summary"] = source.pop("summary")
                 except Exception as e:
                     print(e)
